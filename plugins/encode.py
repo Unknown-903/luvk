@@ -635,7 +635,7 @@ async def start_encode(client, task):
         overlay_pos = get_overlay_position(wm_position)
         fc_parts = [f"[1:v]scale={wm_target_w}:-1:flags=lanczos,format=rgba,colorchannelmixer=aa={alpha}[wm]"]
         if vf_parts:
-            fc_parts.append(f"[0:v]{\',\'.join(vf_parts)}[main]")
+            fc_parts.append(f"[0:v]{','.join(vf_parts)}[main]")
             fc_parts.append(f"[main][wm]overlay={overlay_pos}:format=auto[vout]")
         else:
             fc_parts.append(f"[0:v][wm]overlay={overlay_pos}:format=auto[vout]")
